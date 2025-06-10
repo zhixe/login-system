@@ -1,0 +1,37 @@
+.passkey-login-card {
+    max-width: 400px;
+    margin: 40px auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+    background: #fff;
+    padding: 40px 32px;
+}
+
+.passkey-login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.passkey-login-title {
+    margin: 0;
+}
+
+.passkey-login-btn {
+    font-weight: 600;
+    margin-bottom: 24px;
+    background: linear-gradient(90deg, #0072ff 0%, #00c6ff 100%);
+    border: none;
+}
+
+.passkey-login-footer {
+    color: #888;
+    font-size: 13px;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.passkey-login-error {
+    color: #f5222d;
+    margin-bottom: 12px;
+    display: block;
+}

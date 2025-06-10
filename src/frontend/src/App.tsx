@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ConfigProvider, theme } from "antd";
+import LoginPage from "./pages/LoginPage";
+import { client } from "./graphql/client";
+import {ApolloProvider} from "@apollo/client";
+// import RegisterPage from "./pages/RegisterPage"; // For future use
+// import HomePage from "./pages/HomePage"; // For future use
 
-function App() {
-  const [count, setCount] = useState(0)
+// Optionally set up theme here (light/dark, custom colors)
+const customTheme = {
+    algorithm: theme.defaultAlgorithm, // or theme.darkAlgorithm
+    token: {
+        colorPrimary: "#0072ff",
+        borderRadius: 8,
+        fontFamily: "Inter, 'Segoe UI', Arial, sans-serif",
+    },
+};
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const App: React.FC = () => (
+    <ApolloProvider client={client}>
+        <ConfigProvider theme={customTheme}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/login" element={<LoginPage />} />
+                    {/* <Route path="/register" element={<RegisterPage />} /> */}
+                    {/* <Route path="/home" element={<HomePage />} /> */}
+                    <Route path="*" element={<Navigate to="/login" replace />} />
+                </Routes>
+            </BrowserRouter>
+        </ConfigProvider>
+    </ApolloProvider>
+);
 
-export default App
+export default App;

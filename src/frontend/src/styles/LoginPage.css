@@ -1,0 +1,7 @@
+.login-page-bg {
+    min-height: 100vh;
+    background: #f6f9fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
