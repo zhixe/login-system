@@ -1,0 +1,58 @@
+name: Auto Tag and Release
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  tag-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install deps and sync version
+        working-directory: src/frontend
+        run: |
+          npm run sync-version
+
+      - name: Extract version from CHANGELOG.md
+        working-directory: src/frontend
+        run: |
+          VERSION=$(grep -m1 -Po '(?<=## \[)[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md)
+          NOTES=$(awk '/^## \['"$VERSION"'\]/{flag=1; next} /^## \[/{flag=0} flag' CHANGELOG.md)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
+          echo "$NOTES" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Commit updated files (if changed)
+        working-directory: src/frontend
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add package.json README.md # add any other files your script changes
+          git diff --cached --quiet || git commit -m "🧹 Chore: sync version to $VERSION"
+          git pull
+          git push
+
+      - name: Create and push tag if not exists
+        run: |
+          git fetch --tags  # 👈 Fetch remote tags first
+          if git rev-parse "v$VERSION" >/dev/null 2>&1; then
+            echo "✅ Tag v$VERSION already exists. Skipping."
+          else
+            git tag v$VERSION
+            git push origin v$VERSION
+          fi
+
+      - name: Fetch tags
+        run: git fetch --tags
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ env.VERSION }}
+          name: v${{ env.VERSION }}
+          body: ${{ env.RELEASE_NOTES }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

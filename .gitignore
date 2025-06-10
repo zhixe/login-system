@@ -1,0 +1,18 @@
+# Ignore all .env files
+.env*
+**/.env*
+
+# Ignore lock files
+package-lock.json
+yarn.lock
+
+# Ignore build and output folders
+dist/
+build/
+
+# Ignore node modules
+node_modules/
+
+# IDE and OS-specific
+.idea/
+.DS_Store
