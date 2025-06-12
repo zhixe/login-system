@@ -1,0 +1,22 @@
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    GoogleId: String!
+    registered_with_google: Boolean!
+    has_password: Boolean!
+}
+
+type AuthPayload {
+    Token: String!
+    User: User!
+}
+
+type Mutation {
+    register(name: String!, email: String!, password: String!): User!
+    login(email: String!, password: String!): AuthPayload!
+    googleAuth(idToken: String!): AuthPayload!
+    setPassword(password: String!): Boolean!
+    bindPasskey(passkeyId: String!, publicKey: String!): Boolean!
+    passkeyLogin(passkeyId: String!, challengeResponse: String!): AuthPayload!
+}
