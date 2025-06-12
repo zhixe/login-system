@@ -26,8 +26,8 @@ export const LOGIN_MUTATION = gql`
 export const GOOGLE_AUTH_MUTATION = gql`
     mutation GoogleAuth($idToken: String!) {
         googleAuth(idToken: $idToken) {
-            token
-            user {
+            Token
+            User {
                 id
                 name
                 email
@@ -37,16 +37,16 @@ export const GOOGLE_AUTH_MUTATION = gql`
 `;
 
 export const BIND_PASSKEY_MUTATION = gql`
-    mutation BindPasskey($userId: ID!, $passkeyId: String!, $publicKey: String!) {
-        bindPasskey(userId: $userId, passkeyId: $passkeyId, publicKey: $publicKey)
+    mutation BindPasskey($passkeyId: String!, $publicKey: String!) {
+        bindPasskey(passkeyId: $passkeyId, publicKey: $publicKey)
     }
 `;
 
 export const PASSKEY_LOGIN_MUTATION = gql`
     mutation PasskeyLogin($passkeyId: String!, $challengeResponse: String!) {
         passkeyLogin(passkeyId: $passkeyId, challengeResponse: $challengeResponse) {
-            token
-            user {
+            Token
+            User {
                 id
                 name
                 email
