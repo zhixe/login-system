@@ -24,11 +24,22 @@ func main() {
 		port = defaultPort
 	}
 
-	db, err := sql.Open("postgres", "your-postgres-connection-string")
+	dbURL := os.Getenv("DATABASE_URL")
+	if dbURL == "" {
+		log.Fatal("DATABASE_URL environment variable is not set")
+	}
+	db, err := sql.Open("postgres", dbURL)
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer db.Close()
+	defer func(db *sql.DB) {
+		err := db.Close()
+		if err != nil {
+			log.Printf("Error closing database connection: %v", err)
+		} else {
+			log.Println("Database connection closed successfully")
+		}
+	}(db)
 
 	passkeyService := service.NewPasskeyService()
 
