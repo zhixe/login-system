@@ -45,7 +45,10 @@ func main() {
 
 	// CORS setup
 	corsHandler := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:5173"},
+		AllowedOrigins: []string{
+			"http://localhost:5173",
+			"https://project-2-login-system.netlify.app",
+		},
 		AllowCredentials: true,
 		AllowedMethods:   []string{"POST", "GET", "OPTIONS"},
 		AllowedHeaders:   []string{"Authorization", "Content-Type"},
