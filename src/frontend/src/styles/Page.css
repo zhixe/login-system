@@ -1,0 +1,49 @@
+.auth-page-bg {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-page-card {
+    max-width: 400px;
+    width: 100%;
+    margin: 40px auto;
+    border-radius: 22px;
+    box-shadow: 0 6px 36px 0 rgba(20, 52, 122, 0.13), 0 1.5px 5px 0 rgba(64, 108, 255, 0.07);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    padding: 0 32px 10px 32px;
+    border: 1px solid #f1f2fa;
+    transition: box-shadow 0.2s cubic-bezier(.4,0,.2,1);
+}
+
+.ant-tabs-nav {
+    margin-bottom: 24px;
+}
+.ant-tabs-tab {
+    font-weight: 600 !important;
+    letter-spacing: 0.02em;
+}
+.ant-tabs-ink-bar {
+    height: 3px !important;
+    background: linear-gradient(90deg, #0072ff 0%, #00c6ff 100%) !important;
+    border-radius: 2px 2px 0 0;
+}
+
+.ant-form-item-explain-error {
+    letter-spacing: 0.01em;
+    margin: 5px 0 12px;
+}
+
+.auth-page-card h3, .auth-page-card .ant-typography {
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.auth-page-card label {
+    font-weight: 600;
+    color: #345187;
+}

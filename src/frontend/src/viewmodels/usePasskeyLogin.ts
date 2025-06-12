@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { startAuthentication } from "@simplewebauthn/browser";
 import { authenticateWithPasskey } from "../services/passkeyService";
 
-export function usePasskeyLogin() {
+export function usePasskeyLogin(username: string, onSuccess?: () => void) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | undefined>(undefined);
 
@@ -10,8 +9,8 @@ export function usePasskeyLogin() {
         setLoading(true);
         setError(undefined);
         try {
-            await authenticateWithPasskey(); // This should call your backend for options, do WebAuthn, send assertion to backend
-            // You might want to redirect or set user state here on success
+            await authenticateWithPasskey(username);
+            if (onSuccess) onSuccess();
         } catch (e: any) {
             setError(e.message || "Authentication failed. Try again.");
         } finally {

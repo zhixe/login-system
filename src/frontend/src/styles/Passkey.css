@@ -1,0 +1,23 @@
+.passkey-link-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.passkey-login-link {
+    color: #3066d3 !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    padding: 0 !important;
+    text-decoration: underline;
+    transition: color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.passkey-login-link:hover {
+    color: #005de2 !important;
+    background: none !important;
+    text-decoration: underline;
+}
