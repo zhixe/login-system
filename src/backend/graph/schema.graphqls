@@ -8,8 +8,8 @@ type User {
 }
 
 type AuthPayload {
-    Token: String!
-    User: User!
+    token: String!
+    user: User!
 }
 
 type Mutation {
