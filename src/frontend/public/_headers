@@ -1,2 +1,2 @@
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; img-src * blob: data:; font-src 'self'; connect-src https://login-system-production.up.railway.app https://api.netlify.com; frame-ancestors 'none';
+  Content-Security-Policy: script-src 'self' https://accounts.google.com; object-src 'none'; style-src 'self' 'unsafe-inline'; img-src * blob: data:; font-src 'self'; connect-src https://login-system-production.up.railway.app https://api.netlify.com; frame-ancestors 'none';
