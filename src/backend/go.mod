@@ -5,10 +5,10 @@ go 1.24.3
 require (
 	github.com/99designs/gqlgen v0.17.74
 	github.com/go-webauthn/webauthn v0.13.0
+	github.com/joho/godotenv v1.5.1
 	github.com/rs/cors v1.11.1
 	github.com/vektah/gqlparser/v2 v2.5.27
 	google.golang.org/api v0.236.0
-	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
