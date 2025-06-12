@@ -1,2 +1,2 @@
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; img-src * blob: data:; font-src 'self'; connect-src https://portfolio-amsyar-malek.up.railway.app https://api.netlify.com; frame-ancestors 'none';
+  Content-Security-Policy: default-src 'self'; script-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; img-src * blob: data:; font-src 'self'; connect-src https://words-count-production.up.railway.app https://api.netlify.com; frame-ancestors 'none';
