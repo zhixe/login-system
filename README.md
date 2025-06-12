@@ -1,7 +1,6 @@
 ## Branches
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/zhixe/login-system?label=version)
-
-[//]: # ([![Netlify Status]&#40;https://api.netlify.com/api/v1/badges/b74323b1-3fb2-4927-ae08-cf9edf5384ee/deploy-status&#41;]&#40;https://app.netlify.com/projects/friendly-piroshki-9b3033/deploys&#41;)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b2a17582-47e3-49a9-b144-1341694ff4af/deploy-status)](https://app.netlify.com/projects/project-2-login-system/deploys)
 
 | Branch  | Purpose              | Status   |
 |---------|----------------------|----------|
